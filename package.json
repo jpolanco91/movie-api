@@ -11,6 +11,9 @@
   "author": "Juan Polanco",
   "license": "ISC",
   "dependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "prettier": "^1.16.4",
     "apollo-server": "^2.4.8",
     "firebase": "^5.9.4",
     "graphql": "^14.2.1"

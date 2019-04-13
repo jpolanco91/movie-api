@@ -1,27 +1,12 @@
-const firebase = require('firebase');
-const { firebaseConfig } = require('../config/config.json');
-
-firebase.initializeApp(firebaseConfig);
-const moviesDb = firebase.firestore().collection("movies");
+const FirebaseDataStore = require('../lib/FirebaseDataStore');
+const dataStore = new FirebaseDataStore("movies");
 
 const movies = async () => {
-    
-    let moviesArray = await moviesDb.get().then((querySnapshot) => {
-        return querySnapshot.docs;
-    });
-
-    moviesArray = moviesArray.map((queryDocSnapshot) => {
-        return { ...queryDocSnapshot.data(), ...{ id: queryDocSnapshot.id } };
-    });
-
-    return moviesArray;
+    return dataStore.findAll();
 };
 
 const movie = async (_, args) => {
-    const movieQuery = moviesDb.doc(args.movieId);
-    let movie = await movieQuery.get();
-
-    return { ...movie.data(), ...{ id: movie.id } };
+    return dataStore.findOneById(args.movieId);
 }
 
 const newMovie = (_, args) => {
@@ -39,11 +24,7 @@ const newMovie = (_, args) => {
         categories: args.input.categories,
     };
 
-    const newMovieRef = moviesDb.add(newMovie).then((docRef) => {
-        return docRef;
-    });
-
-    return newMovieRef;
+    return dataStore.addOne(newMovie);
 }
 
 module.exports = {
