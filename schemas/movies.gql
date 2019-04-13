@@ -1,0 +1,37 @@
+type Movie {
+    id: String!
+    title: String
+    year: Int
+    rating: Float
+    covertImage: String
+    fullImage: String
+    genres: [String]
+    isFavorite: Boolean
+    isNew: Boolean
+    isRecent: Boolean
+    isViewed: Boolean
+    categories: [String]
+}
+
+type Query {
+    movie(movieId: ID): Movie
+    movies: [Movie]
+}
+
+input MovieInput {
+    title: String!
+    year: Int!
+    rating: Float!
+    covertImage: String!
+    fullImage: String!
+    genres: [String!]!
+    isFavorite: Boolean!
+    isNew: Boolean!
+    isRecent: Boolean!
+    isViewed: Boolean!
+    categories: [String!]!
+}
+
+type Mutation {
+    newMovie(input: MovieInput!): Movie!
+}

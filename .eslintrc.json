@@ -1,0 +1,20 @@
+{
+    "extends": "airbnb",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "rules": {
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "object-curly-newline": "off"
+    },
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "settings": {
+      "import/resolver": "webpack"
+    }
+}

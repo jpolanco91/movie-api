@@ -1,0 +1,10 @@
+{
+    "firebaseConfig": {
+        "apiKey": "AIzaSyDmQlgDAhbGoETSacWrh552loYbjd3urNo",
+        "authDomain": "movies-backend-service.firebaseapp.com",
+        "databaseURL": "https://movies-backend-service.firebaseio.com",
+        "projectId": "movies-backend-service",
+        "storageBucket": "movies-backend-service.appspot.com",
+        "messagingSenderId": "554052999238"
+    }
+}
